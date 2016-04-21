@@ -1,5 +1,5 @@
 # Leaflet.EdgeBuffer
-Leaflet plugin to support pre-loading tiles outside the current viewport. It will be compatible with Leaflet master once a change to support a GridLayer tile bounds hook is merged.
+Leaflet 1.0 plugin to support pre-loading tiles outside the current viewport.
 
 ## Usage
 
