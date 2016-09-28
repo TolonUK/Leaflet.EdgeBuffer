@@ -13,7 +13,7 @@ L.GridLayer.include({
     var pixelBounds = previousMethods.getTiledPixelBounds.call(this, center, zoom, tileZoom);
     
     if (this.options.edgeBufferTiles > 0) {
-      var pixelEdgeBuffer = this.options.edgeBufferTiles * this._getTileSize();
+      var pixelEdgeBuffer = this.options.edgeBufferTiles * this.options.tileSize;
       pixelBounds = new L.Bounds(pixelBounds.min.subtract([pixelEdgeBuffer, pixelEdgeBuffer]), pixelBounds.max.add([pixelEdgeBuffer, pixelEdgeBuffer]));
     }
     
