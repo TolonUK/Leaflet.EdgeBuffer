@@ -3,11 +3,11 @@ Leaflet 1.0 plugin to support pre-loading tiles outside the current viewport.
 
 ## Usage
 
-Include `Leaflet.EdgeBuffer.js`, then add `edgeBufferTiles: 1` to the options of layers you wish to have an edge buffer. 
+Include `Leaflet.EdgeBuffer.js`. By default, a 1 tile buffer will be added beyond the viewport. To define a different buffer size use the options below. 
 
 ### Options
 
- - **edgeBufferTiles**: (number) The number of tiles that should be loaded beyond the edge of the map viewport. This may be a fractional number. Default to undefined, which disabled the feature.
+ - **edgeBufferTiles**: (number) The number of tiles that should be loaded beyond the edge of the map viewport. This may be a fractional number. Defaults to 1.
 
 
 ## Demos
