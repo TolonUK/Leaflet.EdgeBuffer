@@ -1,6 +1,5 @@
 {
   "name": "leaflet.edgebuffer",
-  "version": "1.0.1",
   "homepage": "https://github.com/TolonUK/Leaflet.EdgeBuffer",
   "authors": [
     "Alex Paterson <alex@tolon.co.uk>"
