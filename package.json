@@ -2,7 +2,7 @@
   "name": "leaflet-edgebuffer",
   "version": "1.0.2",
   "description": "A leaflet plugin for pre-loading map tiles that are outside the current viewport",
-  "main": "src/leaflet.edgebuffer.js",
+  "main": "dist/leaflet.edgebuffer.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/TolonUK/Leaflet.EdgeBuffer/issues"
   },
-  "homepage": "https://github.com/TolonUK/Leaflet.EdgeBuffer"
+  "homepage": "https://github.com/TolonUK/Leaflet.EdgeBuffer",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^2.0.0"
+  }
 }
