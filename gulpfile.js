@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var del = require('del');
+var lint = require('gulp-eslint');
 
 var paths = {
   scripts: ['src/**/*.js']
@@ -14,7 +15,7 @@ gulp.task('clean', function() {
   return del(['dist']);
 });
 
-gulp.task('scripts', ['clean'], function() {
+gulp.task('build', ['clean'], function() {
   // Minify and copy all JavaScript (except vendor scripts)
   return gulp.src(paths.scripts)
     .pipe(uglify())
@@ -24,8 +25,15 @@ gulp.task('scripts', ['clean'], function() {
 
 // Rerun the task when a file changes
 gulp.task('watch', function() {
-  gulp.watch(paths.scripts, ['scripts']);
+  gulp.watch(paths.scripts, ['lint', 'build']);
+});
+
+gulp.task('lint', function() {
+  return gulp.src(paths.scripts).pipe(lint())
+  .pipe(lint.format())
+  // Brick on failure to be super strict
+  .pipe(lint.failOnError());
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['watch', 'scripts']);
+gulp.task('default', ['watch', 'lint', 'build']);
