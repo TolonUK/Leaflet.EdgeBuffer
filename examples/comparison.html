@@ -57,7 +57,7 @@
           <div class="panel-body panel-map">
             <p>Add the script to your document. E.g.</p>
             <pre>&lt;script src="./leaflet.edgebuffer.js"&gt;&lt;/script&gt;</pre>
-            <p>Add the edgeBufferTiles property to your tiled map layers. The value is the minimum number of tiles to load outside of the visible area. Fractional values are permitted. E.g.</p>
+            <p>Add the edgeBufferTiles property to your tiled map layers (or any L.GridLayer-based layer). The value is the minimum number of tiles to load outside of the visible area. Fractional values are permitted. E.g.</p>
             <pre>var openStreetMap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   edgeBufferTiles: 1
 })</pre>
