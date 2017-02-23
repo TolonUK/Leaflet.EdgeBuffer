@@ -22,7 +22,7 @@ This plugin does not currently work with the GoogleMutant plugin. See issues htt
 
 ## License
 
-Leaflet.loading is free software and may be redistributed under the MIT
+Leaflet.EdgeBuffer is free software and may be redistributed under the MIT
 License.
 
  [Leaflet]: https://github.com/Leaflet/Leaflet
