@@ -10,10 +10,10 @@
 
   // attach your plugin to the global 'L' variable
   if (typeof window !== 'undefined' && window.L && !window.L.EdgeBuffer) {
-    window.L.EdgeBuffer = factory(L);
+    factory(window.L);
   }
 }(function (L) {
-  var EdgeBuffer = {
+  L.EdgeBuffer = {
     previousMethods: {
       getTiledPixelBounds: L.GridLayer.prototype._getTiledPixelBounds
     }
@@ -38,5 +38,4 @@
     }
   });
 
-  return EdgeBuffer;
 }, window));
