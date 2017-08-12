@@ -31,8 +31,8 @@
       }
 
       if (edgeBufferTiles > 0) {
-        var pixelEdgeBuffer = edgeBufferTiles * this.options.tileSize;
-        pixelBounds = new L.Bounds(pixelBounds.min.subtract([pixelEdgeBuffer, pixelEdgeBuffer]), pixelBounds.max.add([pixelEdgeBuffer, pixelEdgeBuffer]));
+        var pixelEdgeBuffer = L.GridLayer.prototype.getTileSize.call(this).multiplyBy(edgeBufferTiles);
+        pixelBounds = new L.Bounds(pixelBounds.min.subtract(pixelEdgeBuffer), pixelBounds.max.add(pixelEdgeBuffer));
       }
       return pixelBounds;
     }
