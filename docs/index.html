@@ -4,23 +4,23 @@
         <title>Leaflet.EdgeBuffer Example</title>
 
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
         <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
         
         <link rel="stylesheet" href="./comparison.css">
 
         <!-- Latest compiled and minified JavaScript -->
-        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
         <!-- Include Leaflet -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
-        <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
         <!-- Include the edgebuffer plugin -->
-        <script src="./../src/leaflet.edgebuffer.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/TolonUK/Leaflet.EdgeBuffer@refs/heads/main/src/leaflet.edgebuffer.js"></script>
     </head>
     <body>
       <div class="container-fluid">
@@ -69,8 +69,8 @@
       </div>
 
         <script>
-                var openStreetMapWith1 = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+                var openStreetMapWith1 = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
                     edgeBufferTiles: 1
                 }),
 
@@ -80,8 +80,8 @@
                     zoom: 13,
                 });
                 
-                var openStreetMapWithout = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+                var openStreetMapWithout = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
                     edgeBufferTiles: 0
                 }),
 
