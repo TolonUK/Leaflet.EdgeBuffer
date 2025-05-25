@@ -16,8 +16,8 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
         <!-- Include Leaflet -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Leaflet/Leaflet@v2.0.0-alpha/src/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@2.0.0-alpha/dist/leaflet-global.js"></script>
 
         <!-- Include the edgebuffer plugin -->
         <script src="https://cdn.jsdelivr.net/gh/TolonUK/Leaflet.EdgeBuffer@refs/heads/main/src/leaflet.edgebuffer.js"></script>
@@ -58,7 +58,7 @@
             <p>Add the script to your document. E.g.</p>
             <pre>&lt;script src="./leaflet.edgebuffer.js"&gt;&lt;/script&gt;</pre>
             <p>Add the edgeBufferTiles property to your tiled map layers (or any L.GridLayer-based layer). The value is the minimum number of tiles to load outside of the visible area. Fractional values are permitted. E.g.</p>
-            <pre>var openStreetMap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            <pre>var openStreetMap = new L.TileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   edgeBufferTiles: 1
 })</pre>
           </div>
@@ -69,7 +69,7 @@
       </div>
 
         <script>
-                var openStreetMapWith1 = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                var openStreetMapWith1 = new L.TileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
                     edgeBufferTiles: 1
                 }),
@@ -80,7 +80,7 @@
                     zoom: 13,
                 });
                 
-                var openStreetMapWithout = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                var openStreetMapWithout = new L.TileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
                     edgeBufferTiles: 0
                 }),
