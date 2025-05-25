@@ -17,10 +17,15 @@
 
         <!-- Include Leaflet -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Leaflet/Leaflet@v2.0.0-alpha/src/leaflet.css" />
-        <script src="https://unpkg.com/leaflet@2.0.0-alpha/dist/leaflet-global.js"></script>
+        <script type="importmap">
+            {
+                "imports": {
+                    "leaflet": "https://unpkg.com/leaflet@2.0.0-alpha/dist/leaflet.js",
+                    "leaflet-edgebuffer": "./../src/leaflet.edgebuffer.js"
+                }
+            }
+        </script>
 
-        <!-- Include the edgebuffer plugin -->
-        <script src="https://cdn.jsdelivr.net/gh/TolonUK/Leaflet.EdgeBuffer@refs/heads/main/src/leaflet.edgebuffer.js"></script>
     </head>
     <body>
       <div class="container-fluid">
@@ -68,26 +73,31 @@
       
       </div>
 
-        <script>
+        <script type="module">
+                import L, {LatLng, Map, TileLayer} from 'leaflet';
+                import enableEdgeBuffer from 'leaflet-edgebuffer';
+
+                enableEdgeBuffer();
+
                 var openStreetMapWith1 = new L.TileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
                     edgeBufferTiles: 1
                 }),
 
-                mapWith1 = new L.Map('mapWith1', {
+                mapWith1 = new Map('mapWith1', {
                     layers: [openStreetMapWith1],
                     center: new L.LatLng(54.535151,-1.058028),
                     zoom: 13,
                 });
                 
-                var openStreetMapWithout = new L.TileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                var openStreetMapWithout = new TileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
                     edgeBufferTiles: 0
                 }),
 
-                mapWithout = new L.Map('mapWithout', {
+                mapWithout = new Map('mapWithout', {
                     layers: [openStreetMapWithout],
-                    center: new L.LatLng(54.535151,-1.058028),
+                    center: new LatLng(54.535151,-1.058028),
                     zoom: 13,
                 });
         </script>

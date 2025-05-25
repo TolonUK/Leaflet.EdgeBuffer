@@ -1,41 +1,36 @@
-(function (factory, window) {
-  // define an AMD module that relies on 'leaflet'
-  if (typeof define === 'function' && define.amd) {
-    define(['leaflet'], factory);
+/**
+ * Leaflet.EdgeBuffer plugin for Leaflet 2.0+ (ESM version)
+ * Adds an edge buffer to GridLayer tile loading.
+ */
+import { GridLayer, Bounds } from 'leaflet';
 
-  // define a Common JS module that relies on 'leaflet'
-  } else if (typeof exports === 'object') {
-    module.exports = factory(require('leaflet'));
-  }
+const originalGetTiledPixelBounds = GridLayer.prototype._getTiledPixelBounds;
 
-  // attach your plugin to the global 'L' variable
-  if (typeof window !== 'undefined' && window.L && !window.L.EdgeBuffer) {
-    factory(window.L);
-  }
-}(function (L) {
-  L.EdgeBuffer = {
-    previousMethods: {
-      getTiledPixelBounds: L.GridLayer.prototype._getTiledPixelBounds
-    }
-  };
+/**
+ * Enables the EdgeBuffer extension for all GridLayers.
+ */
+export const enableEdgeBuffer = () => {
+  if (GridLayer.prototype._edgeBufferEnabled) return;
+  GridLayer.prototype._edgeBufferEnabled = true;
 
-  L.GridLayer.include({
-
-    _getTiledPixelBounds : function(center, zoom, tileZoom) {
-      var pixelBounds = L.EdgeBuffer.previousMethods.getTiledPixelBounds.call(this, center, zoom, tileZoom);
-
-      // Default is to buffer one tiles beyond the pixel bounds (edgeBufferTiles = 1).
-      var edgeBufferTiles = 1;
-      if ((this.options.edgeBufferTiles !== undefined) && (this.options.edgeBufferTiles !== null)) {
+  GridLayer.include({
+    _getTiledPixelBounds(center, zoom, tileZoom) {
+      let pixelBounds = originalGetTiledPixelBounds.call(this, center, zoom, tileZoom);
+      let edgeBufferTiles = 1;
+      if (this.options.edgeBufferTiles !== undefined && this.options.edgeBufferTiles !== null) {
         edgeBufferTiles = this.options.edgeBufferTiles;
       }
-
       if (edgeBufferTiles > 0) {
-        var pixelEdgeBuffer = L.GridLayer.prototype.getTileSize.call(this).multiplyBy(edgeBufferTiles);
-        pixelBounds = new L.Bounds(pixelBounds.min.subtract(pixelEdgeBuffer), pixelBounds.max.add(pixelEdgeBuffer));
+        const tileSize = this.getTileSize();
+        const pixelEdgeBuffer = tileSize.multiplyBy(edgeBufferTiles);
+        pixelBounds = new Bounds(
+          pixelBounds.min.subtract(pixelEdgeBuffer),
+          pixelBounds.max.add(pixelEdgeBuffer)
+        );
       }
       return pixelBounds;
-    }
+    },
   });
+};
 
-}, window));
+export default enableEdgeBuffer;
