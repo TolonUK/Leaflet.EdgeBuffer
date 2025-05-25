@@ -1,6 +1,6 @@
 {
   "name": "leaflet-edgebuffer",
-  "version": "1.0.6",
+  "version": "2.0.0-alpha",
   "description": "A leaflet plugin for pre-loading map tiles that are outside the current viewport",
   "main": "src/leaflet.edgebuffer.js",
   "scripts": {
