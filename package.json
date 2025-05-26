@@ -1,10 +1,18 @@
 {
   "name": "leaflet-edgebuffer",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A leaflet plugin for pre-loading map tiles that are outside the current viewport",
   "main": "src/leaflet.edgebuffer.js",
+  "type": "module",
+  "types": "src/leaflet.edgebuffer.d.ts",
+  "files": [
+    "src/leaflet.edgebuffer.js",
+    "src/leaflet.edgebuffer.d.ts"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:types": "tsc --noEmit --project tsconfig.json",
+    "test": "npm run test:types",
+    "lint": "eslint . --ext .js,.ts"
   },
   "repository": {
     "type": "git",
@@ -22,5 +30,12 @@
   "bugs": {
     "url": "https://github.com/TolonUK/Leaflet.EdgeBuffer/issues"
   },
-  "homepage": "https://github.com/TolonUK/Leaflet.EdgeBuffer"
+  "homepage": "https://github.com/TolonUK/Leaflet.EdgeBuffer",
+  "devDependencies": {
+    "@types/leaflet": "^1.9.18",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "eslint": "^9.27.0",
+    "typescript": "^5.8.3"
+  }
 }

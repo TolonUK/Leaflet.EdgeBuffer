@@ -1,3 +1,5 @@
+/* global define, module, require, window */
+
 (function (factory, window) {
   // define an AMD module that relies on 'leaflet'
   if (typeof define === 'function' && define.amd) {
