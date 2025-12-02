@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["leaflet"],
+    "noEmit": true
+  },
+  "include": [
+    "test/**/*.ts",
+    "src/**/*.d.ts"
+  ]
+}
