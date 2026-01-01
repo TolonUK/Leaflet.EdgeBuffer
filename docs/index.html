@@ -1,100 +1,127 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Leaflet.EdgeBuffer Example</title>
 
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<head>
+  <title>Leaflet.EdgeBuffer Example</title>
 
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
-        
-        <link rel="stylesheet" href="./comparison.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"
-          integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ= sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"
-          integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4= sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg=="></script>
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
 
-        <!-- Include Leaflet -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY= sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w==" />
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo= sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg=="></script>
+  <link rel="stylesheet" href="./comparison.css">
 
-        <!-- Include the edgebuffer plugin -->
-        <script src="https://cdn.jsdelivr.net/gh/TolonUK/Leaflet.EdgeBuffer@refs/heads/main/src/leaflet.edgebuffer.js"
-          crossorigin="anonymous"></script>
-    </head>
-    <body>
-      <div class="container-fluid">
-        <div class="page-header">
-          <h1>Leaflet.EdgeBuffer<br /><small>A Leaflet plugin for preloading tiles beyond the edge of the visible map</small></h1>
-        </div>
-        
-        <h2>Demo</h2>
-        <p>
-        Pan the two maps below and observe that the blank background underneath the tiles is less likely to be seen when using the EdgeBuffer plugin.
-        </p>
-        
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Without EdgeBuffer</h3>
-          </div>
-          <div class="panel-body panel-map">
-            <div id="mapWithout" class="map"></div>
-          </div>
-        </div>
-        
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Standard EdgeBuffer Usage (1 Tile)</h3>
-          </div>
-          <div class="panel-body panel-map">
-            <div id="mapWith1" class="map"></div>
-          </div>
-        </div>
-        
-        <h2>Usage</h2>
-      
-        <div class="panel panel-default">
-          <div class="panel-body panel-map">
-            <p>Add the script to your document. E.g.</p>
-            <pre>&lt;script src="./leaflet.edgebuffer.js"&gt;&lt;/script&gt;</pre>
-            <p>Add the edgeBufferTiles property to your tiled map layers (or any L.GridLayer-based layer). The value is the minimum number of tiles to load outside of the visible area. Fractional values are permitted. E.g.</p>
-            <pre>var openStreetMap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-  edgeBufferTiles: 1
-})</pre>
-          </div>
-        </div>
-        
-        <p>See <a href="https://github.com/TolonUK/Leaflet.EdgeBuffer">https://github.com/TolonUK/Leaflet.EdgeBuffer</a> for the code and to download.</p>
-      
-      </div>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ= sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ sha512-jGsMH83oKe9asCpkOVkBnUrDDTp8wl+adkB2D+//JtlxO4SrLoJdhbOysIFQJloQFD+C4Fl1rMsQZF76JjV0eQ=="></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" crossorigin="anonymous"
+    integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4= sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd sha512-oBTprMeNEKCnqfuqKd6sbvFzmFQtlXS3e0C/RGFV0hD6QzhHV+ODfaQbAlmY6/q0ubbwlAM/nCJjkrgA3waLzg=="></script>
 
-        <script>
-                var openStreetMapWith1 = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
-                    edgeBufferTiles: 1
-                }),
-
-                mapWith1 = new L.Map('mapWith1', {
-                    layers: [openStreetMapWith1],
-                    center: new L.LatLng(54.535151,-1.058028),
-                    zoom: 13,
-                });
-                
-                var openStreetMapWithout = L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
-                    edgeBufferTiles: 0
-                }),
-
-                mapWithout = new L.Map('mapWithout', {
-                    layers: [openStreetMapWithout],
-                    center: new L.LatLng(54.535151,-1.058028),
-                    zoom: 13,
-                });
+  <!-- Include Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.css" crossorigin="anonymous"
+    integrity="sha256-P+hWJNlpL+GBSRYC7cdsDbQH91URmpDeOzLp7DbFRtE= sha384-mduptj5Hiyp/jSH2p+p4A8UdSz0gnkrO1y37pdMuUTkAMEUuDsr12k7o4eQJXufp sha512-CYMY5TKjiXXRKyeIBtRzrJcYsQD99gFqzBGmK2Pl2ZRbfPY0UPpKS3O1DoVJH6Fk6yq48UAkIu6IGfLyzMiMPQ==" />
+  <script type="importmap">
+            {
+                "imports": {
+                  "leaflet": "https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js",
+                  "leaflet.edgebuffer": "../src/leaflet.edgebuffer.js"
+              }
+          }
         </script>
-    </body>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="page-header">
+      <h1>Leaflet.EdgeBuffer<br /><small>A Leaflet plugin for preloading tiles beyond the edge of the visible
+          map</small></h1>
+    </div>
+
+    <h2>Demo</h2>
+    <p>
+      Pan the two maps below and observe that the blank background underneath the tiles is less likely to be seen when
+      using the EdgeBuffer plugin.
+    </p>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Without EdgeBuffer</h3>
+      </div>
+      <div class="panel-body panel-map">
+        <div id="mapWithout" class="map"></div>
+      </div>
+    </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Standard EdgeBuffer Usage (1 Tile)</h3>
+      </div>
+      <div class="panel-body panel-map">
+        <div id="mapWith1" class="map"></div>
+      </div>
+    </div>
+
+    <h2>Usage</h2>
+
+    <div class="panel panel-default">
+      <div class="panel-body panel-map">
+        <p>Add the script to your document. E.g.</p>
+        <pre>
+&lt;script type="importmap"&gt;
+  {
+      "imports": {
+          "leaflet": "https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js",
+          "leaflet.edgebuffer": "../src/leaflet.edgebuffer.js"
+      }
+  }
+&lt;/script&gt;</pre>
+
+        <p>Add the edgeBufferTiles property to your tiled map layers (or any L.GridLayer-based layer). The value is the
+          minimum number of tiles to load outside of the visible area. Fractional values are permitted. E.g.</p>
+        <pre>
+&lt;script type="module"&gt;
+  import { LatLng, Map, TileLayer } from 'leaflet';
+  import 'leaflet.edgebuffer';
+
+  var openStreetMap = new L.TileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    edgeBufferTiles: 1
+  })
+  //...</pre>
+      </div>
+    </div>
+
+    <p>See <a href="https://github.com/TolonUK/Leaflet.EdgeBuffer">https://github.com/TolonUK/Leaflet.EdgeBuffer</a> for
+      the code and to download.</p>
+
+  </div>
+
+  <script type="module">
+    import { LatLng, Map, TileLayer } from 'leaflet';
+    import 'leaflet.edgebuffer';
+
+    var openStreetMapWith1 = new TileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
+      edgeBufferTiles: 1
+    }),
+
+      mapWith1 = new Map('mapWith1', {
+        layers: [openStreetMapWith1],
+        center: new LatLng(55.435, -4.6347),
+        zoom: 13,
+      });
+
+    var openStreetMapWithout = new TileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
+      edgeBufferTiles: 0
+    }),
+
+      mapWithout = new Map('mapWithout', {
+        layers: [openStreetMapWithout],
+        center: new LatLng(55.435, -4.6347),
+        zoom: 13,
+      });
+  </script>
+</body>
+
 </html>
